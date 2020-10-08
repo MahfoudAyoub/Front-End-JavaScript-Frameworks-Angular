@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div fxFlex>
+  <div fxFlex *ngIf="leaders">
     <div fxLayout="column" fxLayout.gt-sm="row">
       <div fxFlex="70">
         <h2>Our History</h2>
@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div fxFlex>
+  <div fxFlex *ngIf="leaders">
     <mat-card>
       <blockquote>
         <h3>
@@ -83,5 +83,9 @@
         </p>
       </mat-list-item>
     </mat-list>
+  </div>
+
+  <div [hidden]="leaders">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
   </div>
 </div>
