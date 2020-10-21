@@ -34,6 +34,9 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
+import { HttpClientModule } from "@angular/common/http";
+import { baseURL } from "./shared/baseurl";
+
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
@@ -66,8 +69,14 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    HttpClientModule,
   ],
-  providers: [DishService, PromotionService, LeaderService],
+  providers: [
+    DishService,
+    PromotionService,
+    LeaderService,
+    { provide: "BaseURL", useValue: baseURL },
+  ],
   bootstrap: [AppComponent],
 
   entryComponents: [LoginComponent],
